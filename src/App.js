@@ -1,19 +1,24 @@
 import React , {useState, useEffect} from 'react';
 import EmployeeForm from './components/EmployeeForm';
 import EmployeeList from './components/EmployeeList';
-import SearchBar from './components/SearchBar';
+
+import EmployeeSearch from './components/EmployeeSearch';
 import './App.css'
 
 function App() {
   const [employees, setEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
 
+  // Load employees from localStorage on component mount
   useEffect(() => {
-    const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
-    setEmployees(storedEmployees);
-    setFilteredEmployees(storedEmployees);
+    const storedEmployees = JSON.parse(localStorage.getItem('employees'));
+    if (storedEmployees) {
+      setEmployees(storedEmployees);
+      setFilteredEmployees(storedEmployees);
+    }
   }, []);
 
+  // Save employees to localStorage whenever employees state changes
   useEffect(() => {
     localStorage.setItem('employees', JSON.stringify(employees));
     setFilteredEmployees(employees);
@@ -37,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchBar employees={employees} setFilteredEmployees={setFilteredEmployees} />
+      <EmployeeSearch employees={employees} setFilteredEmployees={setFilteredEmployees} />
       <EmployeeForm addEmployee={addEmployee} />
       <EmployeeList
         employees={filteredEmployees}
