@@ -11,6 +11,7 @@ function EmployeeForm({ addEmployee }) {
     phone: '',
     image: '',
     startDate: '',
+    tenure: ''
   });
 
   const handleChange = (e) => {
@@ -19,10 +20,11 @@ function EmployeeForm({ addEmployee }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!employee.id) {
-      employee.id = Date.now().toString();
-    }
-    addEmployee(employee);
+    const newEmployee = {
+      ...employee,
+      id: Date.now().toString()
+    };
+    addEmployee(newEmployee);
     setEmployee({
       id: '',
       name: '',
@@ -33,6 +35,7 @@ function EmployeeForm({ addEmployee }) {
       phone: '',
       image: '',
       startDate: '',
+      tenure: ''
     });
   };
 
@@ -99,6 +102,15 @@ function EmployeeForm({ addEmployee }) {
         name="startDate"
         value={employee.startDate}
         onChange={handleChange}
+        placeholder="Start Date"
+        required
+      />
+      <input
+        type="text"
+        name="tenure"
+        value={employee.tenure}
+        onChange={handleChange}
+        placeholder="Tenure"
         required
       />
       <button type="submit">Add Employee</button>

@@ -6,6 +6,7 @@ function EmployeeSearch({ setFilteredEmployees, employees }) {
     surname: '',
     id: '',
     department: '',
+    tenure: ''
   });
 
   const handleSearch = (e) => {
@@ -20,7 +21,8 @@ function EmployeeSearch({ setFilteredEmployees, employees }) {
         employee.name.toLowerCase().includes(searchTerm.name.toLowerCase()) &&
         employee.surname.toLowerCase().includes(searchTerm.surname.toLowerCase()) &&
         employee.id.toLowerCase().includes(searchTerm.id.toLowerCase()) &&
-        employee.department.toLowerCase().includes(searchTerm.department.toLowerCase())
+        employee.department.toLowerCase().includes(searchTerm.department.toLowerCase()) &&
+        employee.tenure.toLowerCase().includes(searchTerm.tenure.toLowerCase())
       );
     });
     setFilteredEmployees(filtered);
@@ -54,6 +56,13 @@ function EmployeeSearch({ setFilteredEmployees, employees }) {
         name="department"
         placeholder="Search by department..."
         value={searchTerm.department}
+        onChange={handleSearch}
+      />
+      <input
+        type="text"
+        name="tenure"
+        placeholder="Search by tenure..."
+        value={searchTerm.tenure}
         onChange={handleSearch}
       />
     </div>

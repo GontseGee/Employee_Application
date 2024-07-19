@@ -1,0 +1,15 @@
+
+setup the environment
+setup components:
+Header: Navigation bar
+EmployeeList: Display list of employees
+EmployeeForm: Form to add or update employee details
+EmployeeDetail: View employee details
+SearchBar: Filter employees
+
+Feature Implementation
+CRUD Operations: Create functions for adding, viewing, updating, and deleting employees.
+Filtering: Implement search functionality to filter employees by name, surname, ID, tenure, and department.
+LocalStorage: Save employee data in localStorage to persist across sessions.
+
+Deal with the CSS of the page by making it Aestetic and also by making sure that it is responsive

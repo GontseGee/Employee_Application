@@ -1,124 +1,128 @@
-/* General styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 20px;
+  background-color: #f5f5f5;
+  margin: 20px;
 }
 
 .App {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 
-/* Form styles */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="date"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-form button {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #28a745;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #218838;
-}
-
-/* Employee list and card styles */
-.employee-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.employee-card {
-  display: flex;
-  align-items: center;
+  background: white;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.employee-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 2px solid #1d1e1f;
-  margin-right: 20px;
-}
-
-.employee-card h2 {
-  margin: 0;
-  font-size: 20px;
-  color: #333;
-}
-
-.employee-card p {
+input {
   margin: 5px 0;
-  color: #666;
-}
-
-.employee-card button {
   padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
   font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
-  margin-right: 10px;
+  transition: background-color 0.3s ease;
 }
 
-.employee-card button:hover {
-  background-color: #0056b3;
+button:hover {
+  background-color: #33a8df;
 }
 
-.employee-card .delete-button {
+button.delete-button {
   background-color: #dc3545;
 }
 
-.employee-card .delete-button:hover {
+button.delete-button:hover {
   background-color: #c82333;
 }
 
-/* Search bar styles */
+.employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.employee-card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employee-card img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.employee-card div {
+  text-align: center;
+}
+
 .search-bar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 10px;
   margin-bottom: 20px;
-  background-color: white;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.search-bar input[type="text"],
-.search-bar input[type="number"] {
-  width: 100%;
-  padding:1px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.search-bar input {
+  margin: 5px 0;
+}
+
+
+@media (max-width: 768px) {
+  .employee-card {
+    width: 100%;
+  }
+  
+  .search-bar, form {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+
+  button {
+    padding: 8px;
+  }
 }
